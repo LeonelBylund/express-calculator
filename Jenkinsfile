@@ -8,7 +8,8 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Testing...'
+                bat 'npm run unit-test'
+                bat 'npm run integration-test'
             }
         }
         stage('Deploy') {
