@@ -12,14 +12,20 @@ pipeline {
             }
         }
         stage('Integration Test') {
+            when {
+                anyOf {
+                    branch 'develop'
+                    branch 'main'
+        }
+      }
             steps {
                 bat 'npm run integration-test'
             }
         }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying...'
-            }
-        }
+        //stage('Deploy') {
+            //steps {
+                //echo 'Deploying...'
+            //}
+        //}
     }
 }
