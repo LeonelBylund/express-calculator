@@ -6,9 +6,13 @@ pipeline {
                 bat 'npm install'
             }
         }
-        stage('Test') {
+        stage('Unit Test') {
             steps {
                 bat 'npm run unit-test'
+            }
+        }
+        stage('Integration Test') {
+            steps {
                 bat 'npm run integration-test'
             }
         }
