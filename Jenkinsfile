@@ -29,17 +29,11 @@ pipeline {
             steps {
                 script{
             docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
-                def imagre = docker.build("leonelbylunddocker/express-calculator")
+                def image = docker.build("leonelbylunddocker/express-calculator")
                 image.push("$BUILD_ID")
                     }
                 }
             }
         }
-
-        //stage('Deploy') {
-            //steps {
-                //echo 'Deploying...'
-            //}
-        //}
     }
 }
