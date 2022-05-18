@@ -26,9 +26,11 @@ pipeline {
             when {
                 branch 'main'
             }
+            steps {
             docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
                 def imagre = docker.build("leonelbylunddocker/express-calculator")
                 image.push()
+            }
             }
         }
 
